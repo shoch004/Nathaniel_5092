@@ -93,6 +93,16 @@ namespace MonteCarlo2
             this.multithread = new System.Windows.Forms.CheckBox();
             this.Processors = new System.Windows.Forms.Label();
             this.txt_processors = new System.Windows.Forms.TextBox();
+            this.option_type = new System.Windows.Forms.ComboBox();
+            this.barrierUI = new System.Windows.Forms.RadioButton();
+            this.barrierDO = new System.Windows.Forms.RadioButton();
+            this.barrierDI = new System.Windows.Forms.RadioButton();
+            this.barrierUO = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rebate_txt = new System.Windows.Forms.TextBox();
+            this.BarrierValue = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -101,6 +111,7 @@ namespace MonteCarlo2
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -117,7 +128,7 @@ namespace MonteCarlo2
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 12);
+            this.radioButton1.Location = new System.Drawing.Point(211, 13);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(42, 17);
             this.radioButton1.TabIndex = 1;
@@ -128,7 +139,7 @@ namespace MonteCarlo2
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(103, 12);
+            this.radioButton2.Location = new System.Drawing.Point(302, 12);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(41, 17);
             this.radioButton2.TabIndex = 2;
@@ -155,7 +166,7 @@ namespace MonteCarlo2
             // 
             // spot_text
             // 
-            this.spot_text.Location = new System.Drawing.Point(12, 82);
+            this.spot_text.Location = new System.Drawing.Point(12, 131);
             this.spot_text.Name = "spot_text";
             this.spot_text.Size = new System.Drawing.Size(100, 20);
             this.spot_text.TabIndex = 5;
@@ -163,7 +174,7 @@ namespace MonteCarlo2
             // 
             // vol_text
             // 
-            this.vol_text.Location = new System.Drawing.Point(12, 115);
+            this.vol_text.Location = new System.Drawing.Point(12, 157);
             this.vol_text.Name = "vol_text";
             this.vol_text.Size = new System.Drawing.Size(100, 20);
             this.vol_text.TabIndex = 6;
@@ -171,7 +182,7 @@ namespace MonteCarlo2
             // 
             // rate_text
             // 
-            this.rate_text.Location = new System.Drawing.Point(12, 151);
+            this.rate_text.Location = new System.Drawing.Point(12, 183);
             this.rate_text.Name = "rate_text";
             this.rate_text.Size = new System.Drawing.Size(100, 20);
             this.rate_text.TabIndex = 10;
@@ -179,7 +190,7 @@ namespace MonteCarlo2
             // 
             // tenor_text
             // 
-            this.tenor_text.Location = new System.Drawing.Point(12, 187);
+            this.tenor_text.Location = new System.Drawing.Point(12, 211);
             this.tenor_text.Name = "tenor_text";
             this.tenor_text.Size = new System.Drawing.Size(100, 20);
             this.tenor_text.TabIndex = 9;
@@ -187,7 +198,7 @@ namespace MonteCarlo2
             // 
             // steps_text
             // 
-            this.steps_text.Location = new System.Drawing.Point(12, 219);
+            this.steps_text.Location = new System.Drawing.Point(12, 237);
             this.steps_text.Name = "steps_text";
             this.steps_text.Size = new System.Drawing.Size(100, 20);
             this.steps_text.TabIndex = 8;
@@ -195,7 +206,7 @@ namespace MonteCarlo2
             // 
             // sims_text
             // 
-            this.sims_text.Location = new System.Drawing.Point(12, 254);
+            this.sims_text.Location = new System.Drawing.Point(12, 263);
             this.sims_text.Name = "sims_text";
             this.sims_text.Size = new System.Drawing.Size(100, 20);
             this.sims_text.TabIndex = 7;
@@ -204,7 +215,7 @@ namespace MonteCarlo2
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 257);
+            this.label2.Location = new System.Drawing.Point(128, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 11;
@@ -213,7 +224,7 @@ namespace MonteCarlo2
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 222);
+            this.label3.Location = new System.Drawing.Point(128, 244);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 12;
@@ -222,7 +233,7 @@ namespace MonteCarlo2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(128, 190);
+            this.label4.Location = new System.Drawing.Point(128, 214);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 13;
@@ -231,7 +242,7 @@ namespace MonteCarlo2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(128, 154);
+            this.label5.Location = new System.Drawing.Point(128, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 14;
@@ -240,7 +251,7 @@ namespace MonteCarlo2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(128, 118);
+            this.label6.Location = new System.Drawing.Point(128, 160);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 15;
@@ -249,7 +260,7 @@ namespace MonteCarlo2
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(128, 85);
+            this.label7.Location = new System.Drawing.Point(128, 134);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 16;
@@ -306,7 +317,7 @@ namespace MonteCarlo2
             // price_label
             // 
             this.price_label.AutoSize = true;
-            this.price_label.Location = new System.Drawing.Point(470, 44);
+            this.price_label.Location = new System.Drawing.Point(545, 45);
             this.price_label.Name = "price_label";
             this.price_label.Size = new System.Drawing.Size(31, 13);
             this.price_label.TabIndex = 17;
@@ -314,7 +325,7 @@ namespace MonteCarlo2
             // 
             // price_text
             // 
-            this.price_text.Location = new System.Drawing.Point(354, 41);
+            this.price_text.Location = new System.Drawing.Point(439, 41);
             this.price_text.Name = "price_text";
             this.price_text.ReadOnly = true;
             this.price_text.Size = new System.Drawing.Size(100, 20);
@@ -322,7 +333,7 @@ namespace MonteCarlo2
             // 
             // theta_text
             // 
-            this.theta_text.Location = new System.Drawing.Point(354, 219);
+            this.theta_text.Location = new System.Drawing.Point(439, 219);
             this.theta_text.Name = "theta_text";
             this.theta_text.ReadOnly = true;
             this.theta_text.Size = new System.Drawing.Size(100, 20);
@@ -330,7 +341,7 @@ namespace MonteCarlo2
             // 
             // rho_text
             // 
-            this.rho_text.Location = new System.Drawing.Point(354, 254);
+            this.rho_text.Location = new System.Drawing.Point(439, 254);
             this.rho_text.Name = "rho_text";
             this.rho_text.ReadOnly = true;
             this.rho_text.Size = new System.Drawing.Size(100, 20);
@@ -338,7 +349,7 @@ namespace MonteCarlo2
             // 
             // vega_text
             // 
-            this.vega_text.Location = new System.Drawing.Point(354, 183);
+            this.vega_text.Location = new System.Drawing.Point(439, 183);
             this.vega_text.Name = "vega_text";
             this.vega_text.ReadOnly = true;
             this.vega_text.Size = new System.Drawing.Size(100, 20);
@@ -346,7 +357,7 @@ namespace MonteCarlo2
             // 
             // gamma_text
             // 
-            this.gamma_text.Location = new System.Drawing.Point(354, 147);
+            this.gamma_text.Location = new System.Drawing.Point(439, 147);
             this.gamma_text.Name = "gamma_text";
             this.gamma_text.ReadOnly = true;
             this.gamma_text.Size = new System.Drawing.Size(100, 20);
@@ -354,7 +365,7 @@ namespace MonteCarlo2
             // 
             // delta_text
             // 
-            this.delta_text.Location = new System.Drawing.Point(354, 111);
+            this.delta_text.Location = new System.Drawing.Point(439, 111);
             this.delta_text.Name = "delta_text";
             this.delta_text.ReadOnly = true;
             this.delta_text.Size = new System.Drawing.Size(100, 20);
@@ -362,7 +373,7 @@ namespace MonteCarlo2
             // 
             // se_text
             // 
-            this.se_text.Location = new System.Drawing.Point(354, 78);
+            this.se_text.Location = new System.Drawing.Point(439, 78);
             this.se_text.Name = "se_text";
             this.se_text.ReadOnly = true;
             this.se_text.Size = new System.Drawing.Size(100, 20);
@@ -371,7 +382,7 @@ namespace MonteCarlo2
             // rho_label
             // 
             this.rho_label.AutoSize = true;
-            this.rho_label.Location = new System.Drawing.Point(470, 257);
+            this.rho_label.Location = new System.Drawing.Point(545, 257);
             this.rho_label.Name = "rho_label";
             this.rho_label.Size = new System.Drawing.Size(27, 13);
             this.rho_label.TabIndex = 25;
@@ -380,7 +391,7 @@ namespace MonteCarlo2
             // theta_label
             // 
             this.theta_label.AutoSize = true;
-            this.theta_label.Location = new System.Drawing.Point(470, 222);
+            this.theta_label.Location = new System.Drawing.Point(545, 226);
             this.theta_label.Name = "theta_label";
             this.theta_label.Size = new System.Drawing.Size(35, 13);
             this.theta_label.TabIndex = 26;
@@ -390,7 +401,7 @@ namespace MonteCarlo2
             // vega_label
             // 
             this.vega_label.AutoSize = true;
-            this.vega_label.Location = new System.Drawing.Point(470, 186);
+            this.vega_label.Location = new System.Drawing.Point(545, 186);
             this.vega_label.Name = "vega_label";
             this.vega_label.Size = new System.Drawing.Size(32, 13);
             this.vega_label.TabIndex = 27;
@@ -399,7 +410,7 @@ namespace MonteCarlo2
             // gamma_label
             // 
             this.gamma_label.AutoSize = true;
-            this.gamma_label.Location = new System.Drawing.Point(470, 150);
+            this.gamma_label.Location = new System.Drawing.Point(545, 150);
             this.gamma_label.Name = "gamma_label";
             this.gamma_label.Size = new System.Drawing.Size(43, 13);
             this.gamma_label.TabIndex = 28;
@@ -408,7 +419,7 @@ namespace MonteCarlo2
             // delta_label
             // 
             this.delta_label.AutoSize = true;
-            this.delta_label.Location = new System.Drawing.Point(470, 114);
+            this.delta_label.Location = new System.Drawing.Point(545, 115);
             this.delta_label.Name = "delta_label";
             this.delta_label.Size = new System.Drawing.Size(32, 13);
             this.delta_label.TabIndex = 29;
@@ -417,7 +428,7 @@ namespace MonteCarlo2
             // se_label
             // 
             this.se_label.AutoSize = true;
-            this.se_label.Location = new System.Drawing.Point(470, 81);
+            this.se_label.Location = new System.Drawing.Point(545, 81);
             this.se_label.Name = "se_label";
             this.se_label.Size = new System.Drawing.Size(75, 13);
             this.se_label.TabIndex = 30;
@@ -509,12 +520,123 @@ namespace MonteCarlo2
             this.txt_processors.Size = new System.Drawing.Size(150, 31);
             this.txt_processors.TabIndex = 40;
             // 
+            // option_type
+            // 
+            this.option_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.option_type.FormattingEnabled = true;
+            this.option_type.Items.AddRange(new object[] {
+            "European",
+            "Asian",
+            "Digital",
+            "Barrier",
+            "Lookback",
+            "Range"});
+            this.option_type.Location = new System.Drawing.Point(12, 18);
+            this.option_type.Name = "option_type";
+            this.option_type.Size = new System.Drawing.Size(121, 21);
+            this.option_type.TabIndex = 41;
+            // 
+            // barrierUI
+            // 
+            this.barrierUI.AutoSize = true;
+            this.barrierUI.Location = new System.Drawing.Point(6, 16);
+            this.barrierUI.Name = "barrierUI";
+            this.barrierUI.Size = new System.Drawing.Size(72, 17);
+            this.barrierUI.TabIndex = 42;
+            this.barrierUI.TabStop = true;
+            this.barrierUI.Text = "Up and In";
+            this.barrierUI.UseVisualStyleBackColor = true;
+            // 
+            // barrierDO
+            // 
+            this.barrierDO.AutoSize = true;
+            this.barrierDO.Location = new System.Drawing.Point(97, 55);
+            this.barrierDO.Name = "barrierDO";
+            this.barrierDO.Size = new System.Drawing.Size(94, 17);
+            this.barrierDO.TabIndex = 43;
+            this.barrierDO.TabStop = true;
+            this.barrierDO.Text = "Down and Out";
+            this.barrierDO.UseVisualStyleBackColor = true;
+            // 
+            // barrierDI
+            // 
+            this.barrierDI.AutoSize = true;
+            this.barrierDI.Location = new System.Drawing.Point(6, 55);
+            this.barrierDI.Name = "barrierDI";
+            this.barrierDI.Size = new System.Drawing.Size(86, 17);
+            this.barrierDI.TabIndex = 44;
+            this.barrierDI.TabStop = true;
+            this.barrierDI.Text = "Down and In";
+            this.barrierDI.UseVisualStyleBackColor = true;
+            // 
+            // barrierUO
+            // 
+            this.barrierUO.AutoSize = true;
+            this.barrierUO.Location = new System.Drawing.Point(97, 16);
+            this.barrierUO.Name = "barrierUO";
+            this.barrierUO.Size = new System.Drawing.Size(80, 17);
+            this.barrierUO.TabIndex = 45;
+            this.barrierUO.TabStop = true;
+            this.barrierUO.Text = "Up and Out";
+            this.barrierUO.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.barrierUI);
+            this.groupBox1.Controls.Add(this.barrierDO);
+            this.groupBox1.Controls.Add(this.barrierDI);
+            this.groupBox1.Controls.Add(this.barrierUO);
+            this.groupBox1.Location = new System.Drawing.Point(205, 51);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(192, 84);
+            this.groupBox1.TabIndex = 46;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Barrier Type";
+            // 
+            // rebate_txt
+            // 
+            this.rebate_txt.Location = new System.Drawing.Point(12, 105);
+            this.rebate_txt.Name = "rebate_txt";
+            this.rebate_txt.Size = new System.Drawing.Size(100, 20);
+            this.rebate_txt.TabIndex = 47;
+            // 
+            // BarrierValue
+            // 
+            this.BarrierValue.Location = new System.Drawing.Point(12, 74);
+            this.BarrierValue.Name = "BarrierValue";
+            this.BarrierValue.Size = new System.Drawing.Size(100, 20);
+            this.BarrierValue.TabIndex = 48;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(125, 77);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 49;
+            this.label9.Text = "Barrier";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(118, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Digital - Rebate";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 426);
             this.ControlBox = false;
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.BarrierValue);
+            this.Controls.Add(this.rebate_txt);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.option_type);
             this.Controls.Add(this.txt_processors);
             this.Controls.Add(this.Processors);
             this.Controls.Add(this.multithread);
@@ -557,6 +679,7 @@ namespace MonteCarlo2
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Monte Carlo Simulator";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
@@ -565,6 +688,8 @@ namespace MonteCarlo2
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,6 +808,8 @@ namespace MonteCarlo2
             double spot;
             double tenor;
             double rate;
+            double barrier = -1;
+            double rebate_input = -1;
             int steps;
             int paths;
 
@@ -700,23 +827,133 @@ namespace MonteCarlo2
             int.TryParse(sims_text.Text, out paths) == false ||
             (radioButton1.Checked == false & radioButton2.Checked == false)
             || strike <= 0 || spot <= 0 || volatility <= 0 || tenor <= 0
-            || rate <= 0 || steps <= 0 || paths <= 0 || paths > 1000000
+            || rate <= 0 || steps <= 0 || paths <= 0 || paths > 1000000 
             )
             {
                 MessageBox.Show("Invalid Inputs");
                 
             }
+            else if (option_type.SelectedItem.ToString() == "Barrier" &&
+                (double.TryParse(BarrierValue.Text, out barrier) == false ||
+                barrier <= 0))
+            {
+                MessageBox.Show("Invalid Inputs");
+            }
+            else if (option_type.SelectedItem.ToString() == "Digital" &&
+                (double.TryParse(rebate_txt.Text, out rebate_input) == false ||
+                rebate_input <= 0))
+            {
+                MessageBox.Show("Invalid Inputs");
+            }
             else
             {
-                MonteCarlo2.European option = new European
+                Option option;
+
+                //Euro 
+                if (option_type.SelectedItem.ToString() == "European")
                 {
-                    Strike = strike,
-                    Vol = volatility / 100,
-                    Underlying = spot,
-                    Tenor = tenor,
-                    Rate = rate / 100,
-                    isCall = call
-                };
+                    option = new European
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call
+                    };
+                }
+
+                //Asian
+                else if (option_type.SelectedItem.ToString() == "Asian")
+                {
+                    option = new Asian
+                    {
+
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call
+                    };
+                }
+                //Barrier
+                else if (option_type.SelectedItem.ToString() == "Barrier")
+                {
+                    bool downIn = barrierDI.Checked;
+                    bool downOut = barrierDO.Checked;
+                    bool upIn = barrierUI.Checked;
+                    bool upOut = barrierUO.Checked;
+
+                    option = new Barrier
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call,
+                        down_in = downIn,
+                        down_out = downOut,
+                        up_in = upIn,
+                        up_out = upOut,
+                        barrier_value = barrier
+                    };
+                }
+                //Digital
+                else if (option_type.SelectedItem.ToString() == "Digital")
+                {
+                    double digital_rebate = rebate_input;
+                    option = new Digital
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call,
+                        rebate = rebate_input
+                    };
+                }
+                else if (option_type.SelectedItem.ToString() == "Lookback")
+                {
+                    option = new Lookback
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call
+
+                    };
+                }
+                else if (option_type.SelectedItem.ToString() == "Range")
+                {
+                    option = new Range
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        //is call does not matter for Range 
+                        isCall = call
+                    };
+                }
+                //temporary else statement until all options implemented
+                else
+                {
+                    option = new European
+                    {
+                        Strike = strike,
+                        Vol = volatility / 100,
+                        Underlying = spot,
+                        Tenor = tenor,
+                        Rate = rate / 100,
+                        isCall = call
+                    };
+                }
 
                 //variance reduction techniques
                 bool antithetic = checkBox1.Checked;
@@ -869,6 +1106,16 @@ namespace MonteCarlo2
         private TextBox txt_processors;
         private Label Processors;
         private CheckBox multithread;
+        private RadioButton barrierUO;
+        private RadioButton barrierDI;
+        private RadioButton barrierDO;
+        private RadioButton barrierUI;
+        private ComboBox option_type;
+        private GroupBox groupBox1;
+        private Label label9;
+        private TextBox BarrierValue;
+        private TextBox rebate_txt;
+        private Label label10;
     }
     public class Params
     {

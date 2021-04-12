@@ -16,3 +16,12 @@ C:\Users\Nate\source\repos\NathanielProjects_5091\MonteCarlo2\MonteCarlo2\obj\De
 C:\Users\Nate\source\repos\NathanielProjects_5091\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csproj.CoreCompileInputs.cache
 C:\Users\Nate\source\repos\NathanielProjects_5091\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.exe
 C:\Users\Nate\source\repos\NathanielProjects_5091\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.pdb
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\MonteCarlo2.exe.config
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\MonteCarlo2.exe
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\MonteCarlo2.pdb
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csprojAssemblyReference.cache
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.Form1.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csproj.GenerateResource.cache
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csproj.CoreCompileInputs.cache
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.exe
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.pdb
