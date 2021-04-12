@@ -103,6 +103,7 @@ namespace MonteCarlo2
             this.BarrierValue = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -625,12 +626,22 @@ namespace MonteCarlo2
             this.label10.TabIndex = 50;
             this.label10.Text = "Digital - Rebate";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 2);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(130, 13);
+            this.label11.TabIndex = 51;
+            this.label11.Text = "Select Option Type Below";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 426);
             this.ControlBox = false;
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.BarrierValue);
@@ -1116,6 +1127,7 @@ namespace MonteCarlo2
         private TextBox BarrierValue;
         private TextBox rebate_txt;
         private Label label10;
+        private Label label11;
     }
     public class Params
     {
