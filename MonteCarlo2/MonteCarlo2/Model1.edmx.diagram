@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="023ca8df2592491dbd0106fde9aaaf5a" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.Options" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Stocks" Width="1.5" PointX="4.125" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.StockPrices" Width="1.5" PointX="2.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.TBill" Width="1.5" PointX="1.125" PointY="4" />
+        <EntityTypeShape EntityType="Model1.Trade" Width="1.5" PointX="5" PointY="3.25" />
+        <AssociationConnector Association="Model1.OptionsStocks" />
+        <AssociationConnector Association="Model1.StockPricesStocks" />
+        <AssociationConnector Association="Model1.TBillOptions" />
+        <AssociationConnector Association="Model1.TradeOptions" />
+        <AssociationConnector Association="Model1.TradeStocks" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -25,3 +25,11 @@ C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCa
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csproj.CoreCompileInputs.cache
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.exe
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.pdb
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\EntityFramework.dll
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\EntityFramework.xml
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.csproj.CopyComplete
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.Form2.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddStock.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddPriceHist.resources

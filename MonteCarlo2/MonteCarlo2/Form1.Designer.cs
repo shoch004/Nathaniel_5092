@@ -1035,6 +1035,8 @@ namespace MonteCarlo2
                     theta_text.Text = greeks["theta"].ToString();
                     rho_text.Text = greeks["rho"].ToString();
                     progressBar1.Value = 100;
+               
+
 
             }
 

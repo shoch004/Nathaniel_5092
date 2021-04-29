@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Options">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Options)">
+        <MappingFragment StoreEntitySet="Options">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="isCall" ColumnName="isCall" />
+          <ScalarProperty Name="Strike" ColumnName="Strike" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="Barrier" ColumnName="Barrier" />
+          <ScalarProperty Name="TBillId" ColumnName="TBillId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stocks)">
+        <MappingFragment StoreEntitySet="Stocks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ticker" ColumnName="Ticker" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Exchange" ColumnName="Exchange" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockPrices">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StockPrices)">
+        <MappingFragment StoreEntitySet="StockPrices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+          <ScalarProperty Name="StockID" ColumnName="StockID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBills">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TBill)">
+        <MappingFragment StoreEntitySet="TBills">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tenor" ColumnName="Tenor" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trades">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Trade)">
+        <MappingFragment StoreEntitySet="Trades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="InstrumentType" ColumnName="InstrumentType" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="OptionsStocks" TypeName="Model1.OptionsStocks" StoreEntitySet="Options">
+      <EndProperty Name="Stocks">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+      <EndProperty Name="Options">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StockPricesStocks" TypeName="Model1.StockPricesStocks" StoreEntitySet="StockPrices">
+      <EndProperty Name="Stocks">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+      <EndProperty Name="StockPrices">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TradeOptions" TypeName="Model1.TradeOptions" StoreEntitySet="Trades">
+      <EndProperty Name="Options">
+        <ScalarProperty Name="Id" ColumnName="Option_Id" />
+      </EndProperty>
+      <EndProperty Name="Trade">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TradeStocks" TypeName="Model1.TradeStocks" StoreEntitySet="Trades">
+      <EndProperty Name="Stocks">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+      <EndProperty Name="Trade">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
