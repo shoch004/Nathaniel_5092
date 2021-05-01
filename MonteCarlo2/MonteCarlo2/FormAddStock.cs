@@ -31,7 +31,7 @@ namespace MonteCarlo2
             };
 
             //check if already exists
-            Model1Container model1Container = new Model1Container();
+            Model1Container2 model1Container = new Model1Container2();
             model1Container.Stocks.Add(new_stock);
             model1Container.SaveChanges();
             this.Close(); 

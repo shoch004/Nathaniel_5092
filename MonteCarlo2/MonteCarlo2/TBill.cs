@@ -14,17 +14,8 @@ namespace MonteCarlo2
     
     public partial class TBill
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBill()
-        {
-            this.Options = new HashSet<Options>();
-        }
-    
         public int Id { get; set; }
         public double Tenor { get; set; }
         public double Rate { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Options> Options { get; set; }
     }
 }

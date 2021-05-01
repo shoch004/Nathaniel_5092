@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="TradeToolDataSet1" targetNamespace="http://tempuri.org/TradeToolDataSet1.xsd" xmlns:mstns="http://tempuri.org/TradeToolDataSet1.xsd" xmlns="http://tempuri.org/TradeToolDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DbTradeDataSet" targetNamespace="http://tempuri.org/DbTradeDataSet.xsd" xmlns:mstns="http://tempuri.org/DbTradeDataSet.xsd" xmlns="http://tempuri.org/DbTradeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TradeToolConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TradeToolConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MonteCarlo2.Properties.Settings.GlobalReference.Default.TradeToolConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DbTradeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DbTradeConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MonteCarlo2.Properties.Settings.GlobalReference.Default.DbTradeConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StocksTableAdapter" GeneratorDataComponentClassName="StocksTableAdapter" Name="Stocks" UserDataComponentName="StocksTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TradeToolConnectionString (Settings)" DbObjectName="TradeTool.dbo.Stocks" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DbTradeConnectionString (Settings)" DbObjectName="DbTrade.dbo.Stocks" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT Ticker, Name FROM dbo.Stocks</CommandText>
@@ -29,7 +29,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="TradeToolDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TradeToolDataSet1" msprop:Generator_UserDSName="TradeToolDataSet1">
+  <xs:element name="DbTradeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DbTradeDataSet" msprop:Generator_UserDSName="DbTradeDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Stocks" msprop:Generator_TableClassName="StocksDataTable" msprop:Generator_TableVarName="tableStocks" msprop:Generator_TablePropName="Stocks" msprop:Generator_RowDeletingName="StocksRowDeleting" msprop:Generator_RowChangingName="StocksRowChanging" msprop:Generator_RowEvHandlerName="StocksRowChangeEventHandler" msprop:Generator_RowDeletedName="StocksRowDeleted" msprop:Generator_UserTableName="Stocks" msprop:Generator_RowChangedName="StocksRowChanged" msprop:Generator_RowEvArgName="StocksRowChangeEvent" msprop:Generator_RowClassName="StocksRow">

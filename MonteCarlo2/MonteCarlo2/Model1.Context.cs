@@ -13,10 +13,10 @@ namespace MonteCarlo2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class Model1Container2 : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public Model1Container2()
+            : base("name=Model1Container2")
         {
         }
     
@@ -27,8 +27,8 @@ namespace MonteCarlo2
     
         public virtual DbSet<Options> Options { get; set; }
         public virtual DbSet<Stocks> Stocks { get; set; }
-        public virtual DbSet<StockPrices> StockPrices { get; set; }
         public virtual DbSet<TBill> TBills { get; set; }
+        public virtual DbSet<StockPrices> StockPrices { get; set; }
         public virtual DbSet<Trade> Trades { get; set; }
     }
 }

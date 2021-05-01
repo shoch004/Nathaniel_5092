@@ -33,3 +33,7 @@ C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCa
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.Form2.resources
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddStock.resources
 C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddPriceHist.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddRate.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormTrade.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormAddOptions.resources
+C:\Users\Nate\Documents\Nathaniel_repo\MonteCarlo2\MonteCarlo2\obj\Debug\MonteCarlo2.FormTradeOption.resources

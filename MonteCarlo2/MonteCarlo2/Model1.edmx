@@ -8,29 +8,9 @@
   <EntityContainer Name="Model1StoreContainer">
     <EntitySet Name="Options" EntityType="Model1.Store.Options" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Stocks" EntityType="Model1.Store.Stocks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="StockPrices" EntityType="Model1.Store.StockPrices" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TBills" EntityType="Model1.Store.TBills" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StockPrices" EntityType="Model1.Store.StockPrices" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Trades" EntityType="Model1.Store.Trades" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="OptionsStocks" Association="Model1.Store.OptionsStocks">
-      <End Role="Options" EntitySet="Options" />
-      <End Role="Stocks" EntitySet="Stocks" />
-    </AssociationSet>
-    <AssociationSet Name="StockPricesStocks" Association="Model1.Store.StockPricesStocks">
-      <End Role="StockPrices" EntitySet="StockPrices" />
-      <End Role="Stocks" EntitySet="Stocks" />
-    </AssociationSet>
-    <AssociationSet Name="TBillOptions" Association="Model1.Store.TBillOptions">
-      <End Role="TBill" EntitySet="TBills" />
-      <End Role="Options" EntitySet="Options" />
-    </AssociationSet>
-    <AssociationSet Name="TradeOptions" Association="Model1.Store.TradeOptions">
-      <End Role="Trade" EntitySet="Trades" />
-      <End Role="Options" EntitySet="Options" />
-    </AssociationSet>
-    <AssociationSet Name="TradeStocks" Association="Model1.Store.TradeStocks">
-      <End Role="Trade" EntitySet="Trades" />
-      <End Role="Stocks" EntitySet="Stocks" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Options">
     <Key>
@@ -38,14 +18,12 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="isCall" Type="varbinary(max)" Nullable="true" />
-    <Property Name="Strike" Type="float" Nullable="false" />
-    <Property Name="StockID" Type="int" Nullable="false" />
-    <Property Name="Expiration" Type="float" Nullable="false" />
+    <Property Name="CallPut" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Underlying" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tenor" Type="float" Nullable="false" />
     <Property Name="Rebate" Type="float" Nullable="true" />
     <Property Name="Barrier" Type="float" Nullable="true" />
-    <Property Name="TBillId" Type="int" Nullable="false" />
-    <Property Name="Stock_Id" Type="int" Nullable="false" />
+    <Property Name="Strike" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Stocks">
     <Key>
@@ -56,16 +34,6 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Exchange" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="StockPrices">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ClosePrice" Type="float" Nullable="false" />
-    <Property Name="StockID" Type="int" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Stock_Id" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="TBills">
     <Key>
       <PropertyRef Name="Id" />
@@ -74,108 +42,39 @@
     <Property Name="Tenor" Type="float" Nullable="false" />
     <Property Name="Rate" Type="float" Nullable="false" />
   </EntityType>
+  <EntityType Name="StockPrices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClosePrice" Type="float" Nullable="false" />
+    <Property Name="StockID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Trades">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quantity" Type="float" Nullable="false" />
-    <Property Name="InstrumentType" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="TradePrice" Type="float" Nullable="false" />
+    <Property Name="MarketPrice" Type="float" Nullable="true" />
     <Property Name="Timestamp" Type="datetime" Nullable="false" />
-    <Property Name="Option_Id" Type="int" Nullable="false" />
-    <Property Name="Stock_Id" Type="int" Nullable="false" />
+    <Property Name="InstrumentType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Instrument" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Delta" Type="float" Nullable="true" />
+    <Property Name="PL" Type="float" Nullable="true" />
   </EntityType>
-  <Association Name="OptionsStocks">
-    <End Role="Options" Type="Model1.Store.Options" Multiplicity="*" />
-    <End Role="Stocks" Type="Model1.Store.Stocks" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Stocks">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Options">
-        <PropertyRef Name="Stock_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="StockPricesStocks">
-    <End Role="StockPrices" Type="Model1.Store.StockPrices" Multiplicity="*" />
-    <End Role="Stocks" Type="Model1.Store.Stocks" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Stocks">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="StockPrices">
-        <PropertyRef Name="Stock_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TBillOptions">
-    <End Role="TBill" Type="Model1.Store.TBills" Multiplicity="1" />
-    <End Role="Options" Type="Model1.Store.Options" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBill">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Options">
-        <PropertyRef Name="TBillId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TradeOptions">
-    <End Role="Trade" Type="Model1.Store.Trades" Multiplicity="*" />
-    <End Role="Options" Type="Model1.Store.Options" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Options">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Trade">
-        <PropertyRef Name="Option_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TradeStocks">
-    <End Role="Trade" Type="Model1.Store.Trades" Multiplicity="*" />
-    <End Role="Stocks" Type="Model1.Store.Stocks" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Stocks">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Trade">
-        <PropertyRef Name="Stock_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Model1Container2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Options" EntityType="Model1.Options" />
           <EntitySet Name="Stocks" EntityType="Model1.Stocks" />
-          <EntitySet Name="StockPrices" EntityType="Model1.StockPrices" />
           <EntitySet Name="TBills" EntityType="Model1.TBill" />
+          <EntitySet Name="StockPrices" EntityType="Model1.StockPrices" />
           <EntitySet Name="Trades" EntityType="Model1.Trade" />
-          <AssociationSet Name="OptionsStocks" Association="Model1.OptionsStocks">
-            <End Role="Options" EntitySet="Options" />
-            <End Role="Stocks" EntitySet="Stocks" />
-          </AssociationSet>
-          <AssociationSet Name="StockPricesStocks" Association="Model1.StockPricesStocks">
-            <End Role="StockPrices" EntitySet="StockPrices" />
-            <End Role="Stocks" EntitySet="Stocks" />
-          </AssociationSet>
-          <AssociationSet Name="TBillOptions" Association="Model1.TBillOptions">
-            <End Role="TBill" EntitySet="TBills" />
-            <End Role="Options" EntitySet="Options" />
-          </AssociationSet>
-          <AssociationSet Name="TradeOptions" Association="Model1.TradeOptions">
-            <End Role="Trade" EntitySet="Trades" />
-            <End Role="Options" EntitySet="Options" />
-          </AssociationSet>
-          <AssociationSet Name="TradeStocks" Association="Model1.TradeStocks">
-            <End Role="Trade" EntitySet="Trades" />
-            <End Role="Stocks" EntitySet="Stocks" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Options">
           <Key>
@@ -183,16 +82,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" Nullable="false" />
-          <Property Name="isCall" Type="Binary" Nullable="true" />
-          <Property Name="Strike" Type="Double" Nullable="false" />
-          <Property Name="StockID" Type="Int32" Nullable="false" />
-          <Property Name="Expiration" Type="Double" Nullable="false" />
+          <Property Name="CallPut" Type="String" Nullable="true" />
+          <Property Name="Underlying" Type="String" Nullable="false" />
+          <Property Name="Tenor" Type="Double" Nullable="false" />
           <Property Name="Rebate" Type="Double" Nullable="true" />
           <Property Name="Barrier" Type="Double" Nullable="true" />
-          <NavigationProperty Name="Stock" Relationship="Model1.OptionsStocks" FromRole="Options" ToRole="Stocks" />
-          <NavigationProperty Name="TBill" Relationship="Model1.TBillOptions" FromRole="Options" ToRole="TBill" />
-          <Property Name="TBillId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Trades" Relationship="Model1.TradeOptions" FromRole="Options" ToRole="Trade" />
+          <Property Name="Strike" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="Stocks">
           <Key>
@@ -202,9 +97,14 @@
           <Property Name="Ticker" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Exchange" Type="String" Nullable="false" />
-          <NavigationProperty Name="Options" Relationship="Model1.OptionsStocks" FromRole="Stocks" ToRole="Options" />
-          <NavigationProperty Name="StockPrices" Relationship="Model1.StockPricesStocks" FromRole="Stocks" ToRole="StockPrices" />
-          <NavigationProperty Name="Trades" Relationship="Model1.TradeStocks" FromRole="Stocks" ToRole="Trade" />
+        </EntityType>
+        <EntityType Name="TBill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tenor" Type="Double" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="StockPrices">
           <Key>
@@ -214,16 +114,6 @@
           <Property Name="ClosePrice" Type="Double" Nullable="false" />
           <Property Name="StockID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Stock" Relationship="Model1.StockPricesStocks" FromRole="StockPrices" ToRole="Stocks" />
-        </EntityType>
-        <EntityType Name="TBill">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Tenor" Type="Double" Nullable="false" />
-          <Property Name="Rate" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Options" Relationship="Model1.TBillOptions" FromRole="TBill" ToRole="Options" />
         </EntityType>
         <EntityType Name="Trade">
           <Key>
@@ -231,58 +121,31 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Double" Nullable="false" />
-          <Property Name="InstrumentType" Type="String" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="TradePrice" Type="Double" Nullable="false" />
+          <Property Name="MarketPrice" Type="Double" Nullable="true" />
           <Property Name="Timestamp" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Option" Relationship="Model1.TradeOptions" FromRole="Trade" ToRole="Options" />
-          <NavigationProperty Name="Stock" Relationship="Model1.TradeStocks" FromRole="Trade" ToRole="Stocks" />
+          <Property Name="InstrumentType" Type="String" Nullable="false" />
+          <Property Name="Instrument" Type="String" Nullable="false" />
+          <Property Name="Delta" Type="Double" Nullable="true" />
+          <Property Name="PL" Type="Double" Nullable="true" />
         </EntityType>
-        <Association Name="OptionsStocks">
-          <End Type="Model1.Options" Role="Options" Multiplicity="*" />
-          <End Type="Model1.Stocks" Role="Stocks" Multiplicity="1" />
-        </Association>
-        <Association Name="StockPricesStocks">
-          <End Type="Model1.StockPrices" Role="StockPrices" Multiplicity="*" />
-          <End Type="Model1.Stocks" Role="Stocks" Multiplicity="1" />
-        </Association>
-        <Association Name="TBillOptions">
-          <End Type="Model1.TBill" Role="TBill" Multiplicity="1" />
-          <End Type="Model1.Options" Role="Options" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBill">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Options">
-              <PropertyRef Name="TBillId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TradeOptions">
-          <End Type="Model1.Trade" Role="Trade" Multiplicity="*" />
-          <End Type="Model1.Options" Role="Options" Multiplicity="1" />
-        </Association>
-        <Association Name="TradeStocks">
-          <End Type="Model1.Trade" Role="Trade" Multiplicity="*" />
-          <End Type="Model1.Stocks" Role="Stocks" Multiplicity="1" />
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container2">
     <EntitySetMapping Name="Options">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Options)">
         <MappingFragment StoreEntitySet="Options">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="isCall" ColumnName="isCall" />
-          <ScalarProperty Name="Strike" ColumnName="Strike" />
-          <ScalarProperty Name="StockID" ColumnName="StockID" />
-          <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+          <ScalarProperty Name="CallPut" ColumnName="CallPut" />
+          <ScalarProperty Name="Underlying" ColumnName="Underlying" />
+          <ScalarProperty Name="Tenor" ColumnName="Tenor" />
           <ScalarProperty Name="Rebate" ColumnName="Rebate" />
           <ScalarProperty Name="Barrier" ColumnName="Barrier" />
-          <ScalarProperty Name="TBillId" ColumnName="TBillId" />
+          <ScalarProperty Name="Strike" ColumnName="Strike" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -296,6 +159,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TBills">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TBill)">
+        <MappingFragment StoreEntitySet="TBills">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tenor" ColumnName="Tenor" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="StockPrices">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.StockPrices)">
         <MappingFragment StoreEntitySet="StockPrices">
@@ -306,58 +178,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBills">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.TBill)">
-        <MappingFragment StoreEntitySet="TBills">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Tenor" ColumnName="Tenor" />
-          <ScalarProperty Name="Rate" ColumnName="Rate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Trades">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Trade)">
         <MappingFragment StoreEntitySet="Trades">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="InstrumentType" ColumnName="InstrumentType" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TradePrice" ColumnName="TradePrice" />
+          <ScalarProperty Name="MarketPrice" ColumnName="MarketPrice" />
           <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="InstrumentType" ColumnName="InstrumentType" />
+          <ScalarProperty Name="Instrument" ColumnName="Instrument" />
+          <ScalarProperty Name="Delta" ColumnName="Delta" />
+          <ScalarProperty Name="PL" ColumnName="PL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="OptionsStocks" TypeName="Model1.OptionsStocks" StoreEntitySet="Options">
-      <EndProperty Name="Stocks">
-        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
-      </EndProperty>
-      <EndProperty Name="Options">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="StockPricesStocks" TypeName="Model1.StockPricesStocks" StoreEntitySet="StockPrices">
-      <EndProperty Name="Stocks">
-        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
-      </EndProperty>
-      <EndProperty Name="StockPrices">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TradeOptions" TypeName="Model1.TradeOptions" StoreEntitySet="Trades">
-      <EndProperty Name="Options">
-        <ScalarProperty Name="Id" ColumnName="Option_Id" />
-      </EndProperty>
-      <EndProperty Name="Trade">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TradeStocks" TypeName="Model1.TradeStocks" StoreEntitySet="Trades">
-      <EndProperty Name="Stocks">
-        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
-      </EndProperty>
-      <EndProperty Name="Trade">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

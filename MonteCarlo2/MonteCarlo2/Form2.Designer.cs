@@ -32,8 +32,18 @@ namespace MonteCarlo2
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historicalStockPriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historicalPricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VolLabel = new System.Windows.Forms.Label();
@@ -48,26 +58,37 @@ namespace MonteCarlo2
             this.do_stuff = new System.Windows.Forms.Button();
             this.dataInstruments = new System.Windows.Forms.DataGridView();
             this.tradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tradeToolDataSet = new MonteCarlo2.TradeToolDataSet();
-            this.tradesTableAdapter = new MonteCarlo2.TradeToolDataSetTableAdapters.TradesTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instrumentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.underlyingCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonteCarloPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historicalStockPriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historicalPricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dbTradeDataSet2 = new MonteCarlo2.DbTradeDataSet2();
+            this.tradesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tradesTableAdapter = new MonteCarlo2.DbTradeDataSet2TableAdapters.TradesTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instrumentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marketPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.check_antithetic = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.check_multithread = new System.Windows.Forms.CheckBox();
+            this.check_controlVariate = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.group_settings = new System.Windows.Forms.GroupBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataInstruments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradeToolDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource1)).BeginInit();
+            this.group_settings.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,7 +100,7 @@ namespace MonteCarlo2
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(874, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(694, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,20 +114,95 @@ namespace MonteCarlo2
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // tradeToolStripMenuItem
+            // 
+            this.tradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockToolStripMenuItem1,
+            this.optionToolStripMenuItem1});
+            this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
+            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tradeToolStripMenuItem.Text = "Trade";
+            this.tradeToolStripMenuItem.Click += new System.EventHandler(this.tradeToolStripMenuItem_Click);
+            // 
+            // stockToolStripMenuItem1
+            // 
+            this.stockToolStripMenuItem1.Name = "stockToolStripMenuItem1";
+            this.stockToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.stockToolStripMenuItem1.Text = "Stock";
+            this.stockToolStripMenuItem1.Click += new System.EventHandler(this.stockToolStripMenuItem1_Click);
+            // 
+            // optionToolStripMenuItem1
+            // 
+            this.optionToolStripMenuItem1.Name = "optionToolStripMenuItem1";
+            this.optionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.optionToolStripMenuItem1.Text = "Option";
+            this.optionToolStripMenuItem1.Click += new System.EventHandler(this.optionToolStripMenuItem1_Click);
+            // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionToolStripMenuItem,
             this.stockToolStripMenuItem,
-            this.historicalStockPriceToolStripMenuItem});
+            this.historicalStockPriceToolStripMenuItem,
+            this.rateToolStripMenuItem});
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
+            // 
+            // optionToolStripMenuItem
+            // 
+            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.optionToolStripMenuItem.Text = "Option";
+            this.optionToolStripMenuItem.Click += new System.EventHandler(this.optionToolStripMenuItem_Click);
+            // 
+            // stockToolStripMenuItem
+            // 
+            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.stockToolStripMenuItem.Text = "Stock";
+            this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
+            // 
+            // historicalStockPriceToolStripMenuItem
+            // 
+            this.historicalStockPriceToolStripMenuItem.Name = "historicalStockPriceToolStripMenuItem";
+            this.historicalStockPriceToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.historicalStockPriceToolStripMenuItem.Text = "Historical Stock Price";
+            this.historicalStockPriceToolStripMenuItem.Click += new System.EventHandler(this.historicalStockPriceToolStripMenuItem_Click);
+            // 
+            // rateToolStripMenuItem
+            // 
+            this.rateToolStripMenuItem.Name = "rateToolStripMenuItem";
+            this.rateToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.rateToolStripMenuItem.Text = "Rate";
+            this.rateToolStripMenuItem.Click += new System.EventHandler(this.rateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stocksToolStripMenuItem,
+            this.historicalPricesToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // stocksToolStripMenuItem
+            // 
+            this.stocksToolStripMenuItem.Name = "stocksToolStripMenuItem";
+            this.stocksToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.stocksToolStripMenuItem.Text = "Stocks";
+            // 
+            // historicalPricesToolStripMenuItem
+            // 
+            this.historicalPricesToolStripMenuItem.Name = "historicalPricesToolStripMenuItem";
+            this.historicalPricesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.historicalPricesToolStripMenuItem.Text = "Historical Prices";
             // 
             // analysisToolStripMenuItem
             // 
@@ -119,6 +215,7 @@ namespace MonteCarlo2
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // VolLabel
             // 
@@ -138,6 +235,8 @@ namespace MonteCarlo2
             // 
             // dataTotals
             // 
+            this.dataTotals.AllowUserToAddRows = false;
+            this.dataTotals.AllowUserToDeleteRows = false;
             this.dataTotals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataTotals.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.profitCol,
@@ -148,6 +247,8 @@ namespace MonteCarlo2
             this.rhoCol});
             this.dataTotals.Location = new System.Drawing.Point(15, 81);
             this.dataTotals.Name = "dataTotals";
+            this.dataTotals.ReadOnly = true;
+            this.dataTotals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataTotals.Size = new System.Drawing.Size(658, 111);
             this.dataTotals.TabIndex = 3;
             // 
@@ -189,136 +290,241 @@ namespace MonteCarlo2
             // 
             // do_stuff
             // 
-            this.do_stuff.Location = new System.Drawing.Point(15, 210);
+            this.do_stuff.Location = new System.Drawing.Point(545, 376);
             this.do_stuff.Name = "do_stuff";
-            this.do_stuff.Size = new System.Drawing.Size(75, 23);
+            this.do_stuff.Size = new System.Drawing.Size(128, 82);
             this.do_stuff.TabIndex = 4;
-            this.do_stuff.Text = "go";
+            this.do_stuff.Text = "Calculate";
             this.do_stuff.UseVisualStyleBackColor = true;
             this.do_stuff.Click += new System.EventHandler(this.add_instrument);
             // 
             // dataInstruments
             // 
+            this.dataInstruments.AllowUserToAddRows = false;
+            this.dataInstruments.AllowUserToDeleteRows = false;
             this.dataInstruments.AutoGenerateColumns = false;
             this.dataInstruments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataInstruments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.instrumentTypeDataGridViewTextBoxColumn,
-            this.underlyingCol,
-            this.priceDataGridViewTextBoxColumn,
-            this.MonteCarloPrice,
-            this.timestampDataGridViewTextBoxColumn});
-            this.dataInstruments.DataSource = this.tradesBindingSource;
-            this.dataInstruments.Location = new System.Drawing.Point(12, 239);
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.instrumentDataGridViewTextBoxColumn,
+            this.tradePriceDataGridViewTextBoxColumn,
+            this.marketPriceDataGridViewTextBoxColumn,
+            this.pLDataGridViewTextBoxColumn,
+            this.deltaDataGridViewTextBoxColumn});
+            this.dataInstruments.DataSource = this.tradesBindingSource1;
+            this.dataInstruments.Location = new System.Drawing.Point(15, 220);
             this.dataInstruments.Name = "dataInstruments";
-            this.dataInstruments.Size = new System.Drawing.Size(661, 150);
+            this.dataInstruments.ReadOnly = true;
+            this.dataInstruments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataInstruments.Size = new System.Drawing.Size(658, 150);
             this.dataInstruments.TabIndex = 5;
+            this.dataInstruments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataInstruments_CellClick);
             // 
-            // tradesBindingSource
+            // dbTradeDataSet2
             // 
-            this.tradesBindingSource.DataMember = "Trades";
-            this.tradesBindingSource.DataSource = this.tradeToolDataSet;
+            this.dbTradeDataSet2.DataSetName = "DbTradeDataSet2";
+            this.dbTradeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tradeToolDataSet
+            // tradesBindingSource1
             // 
-            this.tradeToolDataSet.DataSetName = "TradeToolDataSet";
-            this.tradeToolDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tradesBindingSource1.DataMember = "Trades";
+            this.tradesBindingSource1.DataSource = this.dbTradeDataSet2;
             // 
             // tradesTableAdapter
             // 
             this.tradesTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // label1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 199);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Book (Hold CTRL and Click Rows to Select/Unselect)";
             // 
-            // quantityDataGridViewTextBoxColumn
+            // label2
             // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(274, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "P/L and Greeks (Aggregate of Selected Book Positions) ";
             // 
-            // instrumentTypeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.instrumentTypeDataGridViewTextBoxColumn.DataPropertyName = "InstrumentType";
-            this.instrumentTypeDataGridViewTextBoxColumn.HeaderText = "InstrumentType";
-            this.instrumentTypeDataGridViewTextBoxColumn.Name = "instrumentTypeDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // underlyingCol
+            // dataGridViewTextBoxColumn3
             // 
-            this.underlyingCol.HeaderText = "Stock Ticker";
-            this.underlyingCol.Name = "underlyingCol";
-            this.underlyingCol.ReadOnly = true;
-            this.underlyingCol.Visible = false;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Timestamp";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Timestamp";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // priceDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // MonteCarloPrice
+            // dataGridViewTextBoxColumn4
             // 
-            this.MonteCarloPrice.HeaderText = "Market Price";
-            this.MonteCarloPrice.Name = "MonteCarloPrice";
-            this.MonteCarloPrice.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "InstrumentType";
+            this.dataGridViewTextBoxColumn4.HeaderText = "InstrumentType";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // timestampDataGridViewTextBoxColumn
+            // instrumentDataGridViewTextBoxColumn
             // 
-            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
+            this.instrumentDataGridViewTextBoxColumn.DataPropertyName = "Instrument";
+            this.instrumentDataGridViewTextBoxColumn.HeaderText = "Instrument";
+            this.instrumentDataGridViewTextBoxColumn.Name = "instrumentDataGridViewTextBoxColumn";
+            this.instrumentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // stockToolStripMenuItem
+            // tradePriceDataGridViewTextBoxColumn
             // 
-            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stockToolStripMenuItem.Text = "Stock";
-            this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
+            this.tradePriceDataGridViewTextBoxColumn.DataPropertyName = "TradePrice";
+            this.tradePriceDataGridViewTextBoxColumn.HeaderText = "TradePrice";
+            this.tradePriceDataGridViewTextBoxColumn.Name = "tradePriceDataGridViewTextBoxColumn";
+            this.tradePriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // historicalStockPriceToolStripMenuItem
+            // marketPriceDataGridViewTextBoxColumn
             // 
-            this.historicalStockPriceToolStripMenuItem.Name = "historicalStockPriceToolStripMenuItem";
-            this.historicalStockPriceToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.historicalStockPriceToolStripMenuItem.Text = "Historical Stock Price";
-            this.historicalStockPriceToolStripMenuItem.Click += new System.EventHandler(this.historicalStockPriceToolStripMenuItem_Click);
+            this.marketPriceDataGridViewTextBoxColumn.DataPropertyName = "MarketPrice";
+            this.marketPriceDataGridViewTextBoxColumn.HeaderText = "MarketPrice";
+            this.marketPriceDataGridViewTextBoxColumn.Name = "marketPriceDataGridViewTextBoxColumn";
+            this.marketPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // viewToolStripMenuItem
+            // pLDataGridViewTextBoxColumn
             // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stocksToolStripMenuItem,
-            this.historicalPricesToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
+            this.pLDataGridViewTextBoxColumn.DataPropertyName = "PL";
+            this.pLDataGridViewTextBoxColumn.HeaderText = "PL";
+            this.pLDataGridViewTextBoxColumn.Name = "pLDataGridViewTextBoxColumn";
+            this.pLDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // stocksToolStripMenuItem
+            // deltaDataGridViewTextBoxColumn
             // 
-            this.stocksToolStripMenuItem.Name = "stocksToolStripMenuItem";
-            this.stocksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stocksToolStripMenuItem.Text = "Stocks";
+            this.deltaDataGridViewTextBoxColumn.DataPropertyName = "Delta";
+            this.deltaDataGridViewTextBoxColumn.HeaderText = "Delta";
+            this.deltaDataGridViewTextBoxColumn.Name = "deltaDataGridViewTextBoxColumn";
+            this.deltaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // historicalPricesToolStripMenuItem
+            // check_antithetic
             // 
-            this.historicalPricesToolStripMenuItem.Name = "historicalPricesToolStripMenuItem";
-            this.historicalPricesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.historicalPricesToolStripMenuItem.Text = "Historical Prices";
+            this.check_antithetic.AutoSize = true;
+            this.check_antithetic.Location = new System.Drawing.Point(301, 25);
+            this.check_antithetic.Name = "check_antithetic";
+            this.check_antithetic.Size = new System.Drawing.Size(70, 17);
+            this.check_antithetic.TabIndex = 8;
+            this.check_antithetic.Text = "Antithetic";
+            this.check_antithetic.UseVisualStyleBackColor = true;
             // 
-            // tradeToolStripMenuItem
+            // textBox1
             // 
-            this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
-            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tradeToolStripMenuItem.Text = "Trade";
+            this.textBox1.Location = new System.Drawing.Point(173, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(161, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Number of Steps for Monte Carlo";
+            // 
+            // check_multithread
+            // 
+            this.check_multithread.AutoSize = true;
+            this.check_multithread.Location = new System.Drawing.Point(301, 53);
+            this.check_multithread.Name = "check_multithread";
+            this.check_multithread.Size = new System.Drawing.Size(92, 17);
+            this.check_multithread.TabIndex = 11;
+            this.check_multithread.Text = "Multithreading";
+            this.check_multithread.UseVisualStyleBackColor = true;
+            // 
+            // check_controlVariate
+            // 
+            this.check_controlVariate.AutoSize = true;
+            this.check_controlVariate.Location = new System.Drawing.Point(387, 25);
+            this.check_controlVariate.Name = "check_controlVariate";
+            this.check_controlVariate.Size = new System.Drawing.Size(95, 17);
+            this.check_controlVariate.TabIndex = 12;
+            this.check_controlVariate.Text = "Control Variate";
+            this.check_controlVariate.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(161, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Number of Steps for Monte Carlo";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(173, 51);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 14;
+            // 
+            // group_settings
+            // 
+            this.group_settings.Controls.Add(this.label3);
+            this.group_settings.Controls.Add(this.textBox2);
+            this.group_settings.Controls.Add(this.check_antithetic);
+            this.group_settings.Controls.Add(this.label4);
+            this.group_settings.Controls.Add(this.textBox1);
+            this.group_settings.Controls.Add(this.check_controlVariate);
+            this.group_settings.Controls.Add(this.check_multithread);
+            this.group_settings.Location = new System.Drawing.Point(12, 376);
+            this.group_settings.Name = "group_settings";
+            this.group_settings.Size = new System.Drawing.Size(527, 87);
+            this.group_settings.TabIndex = 15;
+            this.group_settings.TabStop = false;
+            this.group_settings.Text = "Calculation Settings - Leave Blank for Default Settings";
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(598, 194);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_refresh.TabIndex = 16;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(354, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(238, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Refresh After Adding Instrument or Placing Trade";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 452);
+            this.ClientSize = new System.Drawing.Size(694, 470);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.group_settings);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataInstruments);
             this.Controls.Add(this.do_stuff);
             this.Controls.Add(this.dataTotals);
@@ -334,7 +540,10 @@ namespace MonteCarlo2
             ((System.ComponentModel.ISupportInitialize)(this.dataTotals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataInstruments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradeToolDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource1)).EndInit();
+            this.group_settings.ResumeLayout(false);
+            this.group_settings.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,33 +568,50 @@ namespace MonteCarlo2
         private System.Windows.Forms.DataGridViewTextBoxColumn thetaCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn rhoCol;
         private System.Windows.Forms.DataGridView dataInstruments;
-        private TradeToolDataSet tradeToolDataSet;
+        //private TradeToolDataSet tradeToolDataSet;
         private System.Windows.Forms.BindingSource tradesBindingSource;
-        private TradeToolDataSetTableAdapters.TradesTableAdapter tradesTableAdapter;
+        //private TradeToolDataSetTableAdapters.TradesTableAdapter tradesTableAdapter;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn instrumentTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn underlyingCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MonteCarloPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem historicalStockPriceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stocksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historicalPricesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tradeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem1;
+        private DbTradeDataSet2 dbTradeDataSet2;
+        private System.Windows.Forms.BindingSource tradesBindingSource1;
+        private DbTradeDataSet2TableAdapters.TradesTableAdapter tradesTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tradePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn marketPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deltaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox check_antithetic;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox check_multithread;
+        private System.Windows.Forms.CheckBox check_controlVariate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox group_settings;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Label label5;
     }
 
 
-    public class myData
-    {
-        public double value1 { get; set; }
-        public double value2 { get; set; }
-        public double value3 { get; set; }
-        public double value4 { get; set; }
-        public double value5 { get; set; }
-        public double value6 { get; set; }
-    }
    
 }

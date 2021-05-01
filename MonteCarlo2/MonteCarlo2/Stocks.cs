@@ -14,24 +14,9 @@ namespace MonteCarlo2
     
     public partial class Stocks
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Stocks()
-        {
-            this.Options = new HashSet<Options>();
-            this.StockPrices = new HashSet<StockPrices>();
-            this.Trades = new HashSet<Trade>();
-        }
-    
         public int Id { get; set; }
         public string Ticker { get; set; }
         public string Name { get; set; }
         public string Exchange { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Options> Options { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StockPrices> StockPrices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trade> Trades { get; set; }
     }
 }

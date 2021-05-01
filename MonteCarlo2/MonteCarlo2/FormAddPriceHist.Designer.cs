@@ -34,14 +34,18 @@ namespace MonteCarlo2
             this.label1 = new System.Windows.Forms.Label();
             this.btn_StockPrice = new System.Windows.Forms.Button();
             this.drop_stockPrice = new System.Windows.Forms.ComboBox();
-            this.tradeToolDataSet1 = new MonteCarlo2.TradeToolDataSet1();
+            this.stocksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stocksTableAdapter = new MonteCarlo2.TradeToolDataSet1TableAdapters.StocksTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.date_ClosePrice = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.tradeToolDataSet1)).BeginInit();
+            this.dbTradeDataSet = new MonteCarlo2.DbTradeDataSet();
+            this.stocksBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.stocksTableAdapter = new MonteCarlo2.DbTradeDataSetTableAdapters.StocksTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_ClosePrice
@@ -72,7 +76,7 @@ namespace MonteCarlo2
             // 
             // drop_stockPrice
             // 
-            this.drop_stockPrice.DataSource = this.stocksBindingSource;
+            this.drop_stockPrice.DataSource = this.stocksBindingSource2;
             this.drop_stockPrice.DisplayMember = "Name";
             this.drop_stockPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.drop_stockPrice.FormattingEnabled = true;
@@ -82,19 +86,13 @@ namespace MonteCarlo2
             this.drop_stockPrice.TabIndex = 3;
             this.drop_stockPrice.ValueMember = "Ticker";
             // 
-            // tradeToolDataSet1
+            // stocksBindingSource1
             // 
-            this.tradeToolDataSet1.DataSetName = "TradeToolDataSet1";
-            this.tradeToolDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.stocksBindingSource1.DataMember = "Stocks";
             // 
             // stocksBindingSource
             // 
             this.stocksBindingSource.DataMember = "Stocks";
-            this.stocksBindingSource.DataSource = this.tradeToolDataSet1;
-            // 
-            // stocksTableAdapter
-            // 
-            this.stocksTableAdapter.ClearBeforeFill = true;
             // 
             // label2
             // 
@@ -113,7 +111,6 @@ namespace MonteCarlo2
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Date";
-            
             // 
             // date_ClosePrice
             // 
@@ -122,6 +119,20 @@ namespace MonteCarlo2
             this.date_ClosePrice.Size = new System.Drawing.Size(212, 20);
             this.date_ClosePrice.TabIndex = 9;
             this.date_ClosePrice.Value = new System.DateTime(2021, 4, 28, 15, 50, 9, 0);
+            // 
+            // dbTradeDataSet
+            // 
+            this.dbTradeDataSet.DataSetName = "DbTradeDataSet";
+            this.dbTradeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // stocksBindingSource2
+            // 
+            this.stocksBindingSource2.DataMember = "Stocks";
+            this.stocksBindingSource2.DataSource = this.dbTradeDataSet;
+            // 
+            // stocksTableAdapter
+            // 
+            this.stocksTableAdapter.ClearBeforeFill = true;
             // 
             // FormAddPriceHist
             // 
@@ -138,8 +149,10 @@ namespace MonteCarlo2
             this.Name = "FormAddPriceHist";
             this.Text = "FormAddPriceHist";
             this.Load += new System.EventHandler(this.FormAddPriceHist_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tradeToolDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,11 +164,17 @@ namespace MonteCarlo2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_StockPrice;
         private System.Windows.Forms.ComboBox drop_stockPrice;
-        private TradeToolDataSet1 tradeToolDataSet1;
+        //private TradeToolDataSet1 tradeToolDataSet1;
         private System.Windows.Forms.BindingSource stocksBindingSource;
-        private TradeToolDataSet1TableAdapters.StocksTableAdapter stocksTableAdapter;
+        //private TradeToolDataSet1TableAdapters.StocksTableAdapter stocksTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker date_ClosePrice;
+        //private ManagementToolDataSet managementToolDataSet;
+        private System.Windows.Forms.BindingSource stocksBindingSource1;
+        private DbTradeDataSet dbTradeDataSet;
+        private System.Windows.Forms.BindingSource stocksBindingSource2;
+        private DbTradeDataSetTableAdapters.StocksTableAdapter stocksTableAdapter;
+        //private ManagementToolDataSetTableAdapters.StocksTableAdapter stocksTableAdapter;
     }
 }

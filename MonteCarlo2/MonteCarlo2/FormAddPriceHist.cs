@@ -20,12 +20,16 @@ namespace MonteCarlo2
 
         private void FormAddPriceHist_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbTradeDataSet.Stocks' table. You can move, or remove it, as needed.
+            this.stocksTableAdapter.Fill(this.dbTradeDataSet.Stocks);
+            // TODO: This line of code loads data into the 'managementToolDataSet.Stocks' table. You can move, or remove it, as needed.
+            //this.stocksTableAdapter.Fill(this.managementToolDataSet.Stocks);
             // TODO: This line of code loads data into the 'tradeToolDataSet1.Stocks' table. You can move, or remove it, as needed.
-            this.stocksTableAdapter.Fill(this.tradeToolDataSet1.Stocks);
+            //this.stocksTableAdapter.Fill(this.tradeToolDataSet1.Stocks);
 
         }
 
-       
+
 
         private void btn_StockPrice_Click(object sender, EventArgs e)
         {
@@ -38,17 +42,11 @@ namespace MonteCarlo2
                 MessageBox.Show("Invalid Inputs");
             else
             { 
-                using (var model1Container = new Model1Container())
+                using (var model1Container = new Model1Container2())
                 {
                     var query = from t in model1Container.Stocks
                                 where t.Ticker == ticker
                                 select t.Id;
-
-                    var query1 = from s in model1Container.Stocks
-                                 where s.Ticker == ticker
-                                 select s;
-                    Stocks foreign_key = query1.FirstOrDefault();
-
 
                     var id = query.FirstOrDefault();
 
@@ -58,7 +56,7 @@ namespace MonteCarlo2
                         ClosePrice = closePrice,
                         Date = date_ClosePrice.Value.Date,
                         StockID = (int)id,
-                        Stock = foreign_key
+                      
                        
                     };
                     model1Container.StockPrices.Add(new_price);
@@ -66,18 +64,8 @@ namespace MonteCarlo2
 
                 }
             }
-            
 
-            //var stock_id = model1Container.Stocks.SqlQuery("SELECT Id FROM dbo.Stocks WHERE Ticker = @ticker", new SqlParameter("ticker", ticker)).ToList<Stocks>();
-
-            //var stock_id = model1Container.Stocks.SqlQuery("SELECT Id FROM dbo.Stocks").ToList<Stocks>();
-            //MessageBox.Show(stock_id.First<Stocks>().Id.ToString());
-            //DateTime date = date_ClosePrice.Value.Date;
-            //double closePrice;
-            
-            
-
-            
+            this.Close();
         }
     }
 }

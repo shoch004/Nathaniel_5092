@@ -32,5 +32,25 @@ namespace MonteCarlo2.Properties {
                 return ((string)(this["TradeToolConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=ManagementTool;Integrated Security=True")]
+        public string ManagementToolConnectionString {
+            get {
+                return ((string)(this["ManagementToolConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=DbTrade;Integrated Security=True")]
+        public string DbTradeConnectionString {
+            get {
+                return ((string)(this["DbTradeConnectionString"]));
+            }
+        }
     }
 }

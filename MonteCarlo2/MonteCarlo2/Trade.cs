@@ -16,11 +16,12 @@ namespace MonteCarlo2
     {
         public int Id { get; set; }
         public double Quantity { get; set; }
-        public string InstrumentType { get; set; }
-        public double Price { get; set; }
+        public double TradePrice { get; set; }
+        public Nullable<double> MarketPrice { get; set; }
         public System.DateTime Timestamp { get; set; }
-    
-        public virtual Options Option { get; set; }
-        public virtual Stocks Stock { get; set; }
+        public string InstrumentType { get; set; }
+        public string Instrument { get; set; }
+        public Nullable<double> Delta { get; set; }
+        public Nullable<double> PL { get; set; }
     }
 }

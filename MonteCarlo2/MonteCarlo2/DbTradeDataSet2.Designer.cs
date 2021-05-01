@@ -20,9 +20,9 @@ namespace MonteCarlo2 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("TradeToolDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DbTradeDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class TradeToolDataSet : global::System.Data.DataSet {
+    public partial class DbTradeDataSet2 : global::System.Data.DataSet {
         
         private TradesDataTable tableTrades;
         
@@ -30,7 +30,7 @@ namespace MonteCarlo2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public TradeToolDataSet() {
+        public DbTradeDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace MonteCarlo2 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected TradeToolDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DbTradeDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace MonteCarlo2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            TradeToolDataSet cln = ((TradeToolDataSet)(base.Clone()));
+            DbTradeDataSet2 cln = ((DbTradeDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace MonteCarlo2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "TradeToolDataSet";
+            this.DataSetName = "DbTradeDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/TradeToolDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DbTradeDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableTrades = new TradesDataTable();
@@ -225,7 +225,7 @@ namespace MonteCarlo2 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            TradeToolDataSet ds = new TradeToolDataSet();
+            DbTradeDataSet2 ds = new DbTradeDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -283,15 +283,19 @@ namespace MonteCarlo2 {
             
             private global::System.Data.DataColumn columnQuantity;
             
-            private global::System.Data.DataColumn columnInstrumentType;
+            private global::System.Data.DataColumn columnTradePrice;
             
-            private global::System.Data.DataColumn columnPrice;
+            private global::System.Data.DataColumn columnMarketPrice;
             
             private global::System.Data.DataColumn columnTimestamp;
             
-            private global::System.Data.DataColumn columnOption_Id;
+            private global::System.Data.DataColumn columnInstrumentType;
             
-            private global::System.Data.DataColumn columnStock_Id;
+            private global::System.Data.DataColumn columnInstrument;
+            
+            private global::System.Data.DataColumn columnDelta;
+            
+            private global::System.Data.DataColumn columnPL;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -344,17 +348,17 @@ namespace MonteCarlo2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InstrumentTypeColumn {
+            public global::System.Data.DataColumn TradePriceColumn {
                 get {
-                    return this.columnInstrumentType;
+                    return this.columnTradePrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PriceColumn {
+            public global::System.Data.DataColumn MarketPriceColumn {
                 get {
-                    return this.columnPrice;
+                    return this.columnMarketPrice;
                 }
             }
             
@@ -368,17 +372,33 @@ namespace MonteCarlo2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Option_IdColumn {
+            public global::System.Data.DataColumn InstrumentTypeColumn {
                 get {
-                    return this.columnOption_Id;
+                    return this.columnInstrumentType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Stock_IdColumn {
+            public global::System.Data.DataColumn InstrumentColumn {
                 get {
-                    return this.columnStock_Id;
+                    return this.columnInstrument;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DeltaColumn {
+                get {
+                    return this.columnDelta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PLColumn {
+                get {
+                    return this.columnPL;
                 }
             }
             
@@ -419,16 +439,18 @@ namespace MonteCarlo2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TradesRow AddTradesRow(double Quantity, string InstrumentType, double Price, System.DateTime Timestamp, int Option_Id, int Stock_Id) {
+            public TradesRow AddTradesRow(double Quantity, double TradePrice, double MarketPrice, System.DateTime Timestamp, string InstrumentType, string Instrument, double Delta, double PL) {
                 TradesRow rowTradesRow = ((TradesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Quantity,
-                        InstrumentType,
-                        Price,
+                        TradePrice,
+                        MarketPrice,
                         Timestamp,
-                        Option_Id,
-                        Stock_Id};
+                        InstrumentType,
+                        Instrument,
+                        Delta,
+                        PL};
                 rowTradesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTradesRow);
                 return rowTradesRow;
@@ -460,11 +482,13 @@ namespace MonteCarlo2 {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnQuantity = base.Columns["Quantity"];
-                this.columnInstrumentType = base.Columns["InstrumentType"];
-                this.columnPrice = base.Columns["Price"];
+                this.columnTradePrice = base.Columns["TradePrice"];
+                this.columnMarketPrice = base.Columns["MarketPrice"];
                 this.columnTimestamp = base.Columns["Timestamp"];
-                this.columnOption_Id = base.Columns["Option_Id"];
-                this.columnStock_Id = base.Columns["Stock_Id"];
+                this.columnInstrumentType = base.Columns["InstrumentType"];
+                this.columnInstrument = base.Columns["Instrument"];
+                this.columnDelta = base.Columns["Delta"];
+                this.columnPL = base.Columns["PL"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -474,16 +498,20 @@ namespace MonteCarlo2 {
                 base.Columns.Add(this.columnId);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantity);
-                this.columnInstrumentType = new global::System.Data.DataColumn("InstrumentType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInstrumentType);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrice);
+                this.columnTradePrice = new global::System.Data.DataColumn("TradePrice", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTradePrice);
+                this.columnMarketPrice = new global::System.Data.DataColumn("MarketPrice", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMarketPrice);
                 this.columnTimestamp = new global::System.Data.DataColumn("Timestamp", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTimestamp);
-                this.columnOption_Id = new global::System.Data.DataColumn("Option_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOption_Id);
-                this.columnStock_Id = new global::System.Data.DataColumn("Stock_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStock_Id);
+                this.columnInstrumentType = new global::System.Data.DataColumn("InstrumentType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstrumentType);
+                this.columnInstrument = new global::System.Data.DataColumn("Instrument", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstrument);
+                this.columnDelta = new global::System.Data.DataColumn("Delta", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDelta);
+                this.columnPL = new global::System.Data.DataColumn("PL", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPL);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -493,12 +521,12 @@ namespace MonteCarlo2 {
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
                 this.columnQuantity.AllowDBNull = false;
+                this.columnTradePrice.AllowDBNull = false;
+                this.columnTimestamp.AllowDBNull = false;
                 this.columnInstrumentType.AllowDBNull = false;
                 this.columnInstrumentType.MaxLength = 2147483647;
-                this.columnPrice.AllowDBNull = false;
-                this.columnTimestamp.AllowDBNull = false;
-                this.columnOption_Id.AllowDBNull = false;
-                this.columnStock_Id.AllowDBNull = false;
+                this.columnInstrument.AllowDBNull = false;
+                this.columnInstrument.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -566,7 +594,7 @@ namespace MonteCarlo2 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TradeToolDataSet ds = new TradeToolDataSet();
+                DbTradeDataSet2 ds = new DbTradeDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -663,23 +691,28 @@ namespace MonteCarlo2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string InstrumentType {
+            public double TradePrice {
                 get {
-                    return ((string)(this[this.tableTrades.InstrumentTypeColumn]));
+                    return ((double)(this[this.tableTrades.TradePriceColumn]));
                 }
                 set {
-                    this[this.tableTrades.InstrumentTypeColumn] = value;
+                    this[this.tableTrades.TradePriceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Price {
+            public double MarketPrice {
                 get {
-                    return ((double)(this[this.tableTrades.PriceColumn]));
+                    try {
+                        return ((double)(this[this.tableTrades.MarketPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MarketPrice\' in table \'Trades\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableTrades.PriceColumn] = value;
+                    this[this.tableTrades.MarketPriceColumn] = value;
                 }
             }
             
@@ -696,24 +729,92 @@ namespace MonteCarlo2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Option_Id {
+            public string InstrumentType {
                 get {
-                    return ((int)(this[this.tableTrades.Option_IdColumn]));
+                    return ((string)(this[this.tableTrades.InstrumentTypeColumn]));
                 }
                 set {
-                    this[this.tableTrades.Option_IdColumn] = value;
+                    this[this.tableTrades.InstrumentTypeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Stock_Id {
+            public string Instrument {
                 get {
-                    return ((int)(this[this.tableTrades.Stock_IdColumn]));
+                    return ((string)(this[this.tableTrades.InstrumentColumn]));
                 }
                 set {
-                    this[this.tableTrades.Stock_IdColumn] = value;
+                    this[this.tableTrades.InstrumentColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Delta {
+                get {
+                    try {
+                        return ((double)(this[this.tableTrades.DeltaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Delta\' in table \'Trades\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrades.DeltaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double PL {
+                get {
+                    try {
+                        return ((double)(this[this.tableTrades.PLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PL\' in table \'Trades\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrades.PLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMarketPriceNull() {
+                return this.IsNull(this.tableTrades.MarketPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMarketPriceNull() {
+                this[this.tableTrades.MarketPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDeltaNull() {
+                return this.IsNull(this.tableTrades.DeltaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDeltaNull() {
+                this[this.tableTrades.DeltaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPLNull() {
+                return this.IsNull(this.tableTrades.PLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPLNull() {
+                this[this.tableTrades.PLColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -752,7 +853,7 @@ namespace MonteCarlo2 {
         }
     }
 }
-namespace MonteCarlo2.TradeToolDataSetTableAdapters {
+namespace MonteCarlo2.DbTradeDataSet2TableAdapters {
     
     
     /// <summary>
@@ -878,53 +979,64 @@ namespace MonteCarlo2.TradeToolDataSetTableAdapters {
             tableMapping.DataSetTable = "Trades";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
-            tableMapping.ColumnMappings.Add("InstrumentType", "InstrumentType");
-            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("TradePrice", "TradePrice");
+            tableMapping.ColumnMappings.Add("MarketPrice", "MarketPrice");
             tableMapping.ColumnMappings.Add("Timestamp", "Timestamp");
-            tableMapping.ColumnMappings.Add("Option_Id", "Option_Id");
-            tableMapping.ColumnMappings.Add("Stock_Id", "Stock_Id");
+            tableMapping.ColumnMappings.Add("InstrumentType", "InstrumentType");
+            tableMapping.ColumnMappings.Add("Instrument", "Instrument");
+            tableMapping.ColumnMappings.Add("Delta", "Delta");
+            tableMapping.ColumnMappings.Add("PL", "PL");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Trades] WHERE (([Id] = @Original_Id) AND ([Quantity] = @Origin" +
-                "al_Quantity) AND ([Price] = @Original_Price) AND ([Timestamp] = @Original_Timest" +
-                "amp) AND ([Option_Id] = @Original_Option_Id) AND ([Stock_Id] = @Original_Stock_I" +
-                "d))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Trades] WHERE (([Id] = @Original_Id) AND ([Quantity] = @Original_Quantity) AND ([TradePrice] = @Original_TradePrice) AND ((@IsNull_MarketPrice = 1 AND [MarketPrice] IS NULL) OR ([MarketPrice] = @Original_MarketPrice)) AND ([Timestamp] = @Original_Timestamp) AND ((@IsNull_Delta = 1 AND [Delta] IS NULL) OR ([Delta] = @Original_Delta)) AND ((@IsNull_PL = 1 AND [PL] IS NULL) OR ([PL] = @Original_PL)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TradePrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TradePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MarketPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MarketPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Timestamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Option_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Option_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Stock_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Stock_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Delta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Delta", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PL", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Trades] ([Quantity], [InstrumentType], [Price], [Timestamp], [Option_Id], [Stock_Id]) VALUES (@Quantity, @InstrumentType, @Price, @Timestamp, @Option_Id, @Stock_Id);
-SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM Trades WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Trades] ([Quantity], [TradePrice], [MarketPrice], [Timestamp], [InstrumentType], [Instrument], [Delta], [PL]) VALUES (@Quantity, @TradePrice, @MarketPrice, @Timestamp, @InstrumentType, @Instrument, @Delta, @PL);
+SELECT Id, Quantity, TradePrice, MarketPrice, Timestamp, InstrumentType, Instrument, Delta, PL FROM Trades WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TradePrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TradePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MarketPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Option_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Option_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Stock_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Stock_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Instrument", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Instrument", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Delta", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PL", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Trades] SET [Quantity] = @Quantity, [InstrumentType] = @InstrumentType, [Price] = @Price, [Timestamp] = @Timestamp, [Option_Id] = @Option_Id, [Stock_Id] = @Stock_Id WHERE (([Id] = @Original_Id) AND ([Quantity] = @Original_Quantity) AND ([Price] = @Original_Price) AND ([Timestamp] = @Original_Timestamp) AND ([Option_Id] = @Original_Option_Id) AND ([Stock_Id] = @Original_Stock_Id));
-SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM Trades WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Trades] SET [Quantity] = @Quantity, [TradePrice] = @TradePrice, [MarketPrice] = @MarketPrice, [Timestamp] = @Timestamp, [InstrumentType] = @InstrumentType, [Instrument] = @Instrument, [Delta] = @Delta, [PL] = @PL WHERE (([Id] = @Original_Id) AND ([Quantity] = @Original_Quantity) AND ([TradePrice] = @Original_TradePrice) AND ((@IsNull_MarketPrice = 1 AND [MarketPrice] IS NULL) OR ([MarketPrice] = @Original_MarketPrice)) AND ([Timestamp] = @Original_Timestamp) AND ((@IsNull_Delta = 1 AND [Delta] IS NULL) OR ([Delta] = @Original_Delta)) AND ((@IsNull_PL = 1 AND [PL] IS NULL) OR ([PL] = @Original_PL)));
+SELECT Id, Quantity, TradePrice, MarketPrice, Timestamp, InstrumentType, Instrument, Delta, PL FROM Trades WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TradePrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TradePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MarketPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Timestamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Option_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Option_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Stock_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Stock_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InstrumentType", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InstrumentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Instrument", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Instrument", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Delta", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PL", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TradePrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TradePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MarketPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MarketPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MarketPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Timestamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Timestamp", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Option_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Option_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Stock_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Stock_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Delta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Delta", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Delta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PL", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -932,7 +1044,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MonteCarlo2.Properties.Settings.Default.TradeToolConnectionString;
+            this._connection.ConnectionString = global::MonteCarlo2.Properties.Settings.Default.DbTradeConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -941,8 +1053,8 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM d" +
-                "bo.Trades";
+            this._commandCollection[0].CommandText = "SELECT Id, Quantity, TradePrice, MarketPrice, Timestamp, InstrumentType, Instrume" +
+                "nt, Delta, PL FROM dbo.Trades";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -950,7 +1062,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TradeToolDataSet.TradesDataTable dataTable) {
+        public virtual int Fill(DbTradeDataSet2.TradesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -963,9 +1075,9 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TradeToolDataSet.TradesDataTable GetData() {
+        public virtual DbTradeDataSet2.TradesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TradeToolDataSet.TradesDataTable dataTable = new TradeToolDataSet.TradesDataTable();
+            DbTradeDataSet2.TradesDataTable dataTable = new DbTradeDataSet2.TradesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -973,14 +1085,14 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TradeToolDataSet.TradesDataTable dataTable) {
+        public virtual int Update(DbTradeDataSet2.TradesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TradeToolDataSet dataSet) {
+        public virtual int Update(DbTradeDataSet2 dataSet) {
             return this.Adapter.Update(dataSet, "Trades");
         }
         
@@ -1003,13 +1115,35 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, double Original_Quantity, double Original_Price, System.DateTime Original_Timestamp, int Original_Option_Id, int Original_Stock_Id) {
+        public virtual int Delete(int Original_Id, double Original_Quantity, double Original_TradePrice, global::System.Nullable<double> Original_MarketPrice, System.DateTime Original_Timestamp, global::System.Nullable<double> Original_Delta, global::System.Nullable<double> Original_PL) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((double)(Original_Quantity));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_Price));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_Timestamp));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Option_Id));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Stock_Id));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_TradePrice));
+            if ((Original_MarketPrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_MarketPrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_Timestamp));
+            if ((Original_Delta.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((double)(Original_Delta.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PL.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_PL.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1030,18 +1164,40 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(double Quantity, string InstrumentType, double Price, System.DateTime Timestamp, int Option_Id, int Stock_Id) {
+        public virtual int Insert(double Quantity, double TradePrice, global::System.Nullable<double> MarketPrice, System.DateTime Timestamp, string InstrumentType, string Instrument, global::System.Nullable<double> Delta, global::System.Nullable<double> PL) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((double)(Quantity));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((double)(TradePrice));
+            if ((MarketPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(MarketPrice.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Timestamp));
             if ((InstrumentType == null)) {
                 throw new global::System.ArgumentNullException("InstrumentType");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(InstrumentType));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(InstrumentType));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((double)(Price));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Timestamp));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Option_Id));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Stock_Id));
+            if ((Instrument == null)) {
+                throw new global::System.ArgumentNullException("Instrument");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Instrument));
+            }
+            if ((Delta.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(Delta.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((PL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(PL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1062,25 +1218,85 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(double Quantity, string InstrumentType, double Price, System.DateTime Timestamp, int Option_Id, int Stock_Id, int Original_Id, double Original_Quantity, double Original_Price, System.DateTime Original_Timestamp, int Original_Option_Id, int Original_Stock_Id, int Id) {
+        public virtual int Update(
+                    double Quantity, 
+                    double TradePrice, 
+                    global::System.Nullable<double> MarketPrice, 
+                    System.DateTime Timestamp, 
+                    string InstrumentType, 
+                    string Instrument, 
+                    global::System.Nullable<double> Delta, 
+                    global::System.Nullable<double> PL, 
+                    int Original_Id, 
+                    double Original_Quantity, 
+                    double Original_TradePrice, 
+                    global::System.Nullable<double> Original_MarketPrice, 
+                    System.DateTime Original_Timestamp, 
+                    global::System.Nullable<double> Original_Delta, 
+                    global::System.Nullable<double> Original_PL, 
+                    int Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((double)(Quantity));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(TradePrice));
+            if ((MarketPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(MarketPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Timestamp));
             if ((InstrumentType == null)) {
                 throw new global::System.ArgumentNullException("InstrumentType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(InstrumentType));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(InstrumentType));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(Price));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Timestamp));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Option_Id));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Stock_Id));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(Original_Quantity));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(Original_Price));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_Timestamp));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Option_Id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Stock_Id));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Id));
+            if ((Instrument == null)) {
+                throw new global::System.ArgumentNullException("Instrument");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Instrument));
+            }
+            if ((Delta.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Delta.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((PL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(PL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(Original_Quantity));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_TradePrice));
+            if ((Original_MarketPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_MarketPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_Timestamp));
+            if ((Original_Delta.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((double)(Original_Delta.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_PL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1101,8 +1317,8 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(double Quantity, string InstrumentType, double Price, System.DateTime Timestamp, int Option_Id, int Stock_Id, int Original_Id, double Original_Quantity, double Original_Price, System.DateTime Original_Timestamp, int Original_Option_Id, int Original_Stock_Id) {
-            return this.Update(Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id, Original_Id, Original_Quantity, Original_Price, Original_Timestamp, Original_Option_Id, Original_Stock_Id, Original_Id);
+        public virtual int Update(double Quantity, double TradePrice, global::System.Nullable<double> MarketPrice, System.DateTime Timestamp, string InstrumentType, string Instrument, global::System.Nullable<double> Delta, global::System.Nullable<double> PL, int Original_Id, double Original_Quantity, double Original_TradePrice, global::System.Nullable<double> Original_MarketPrice, System.DateTime Original_Timestamp, global::System.Nullable<double> Original_Delta, global::System.Nullable<double> Original_PL) {
+            return this.Update(Quantity, TradePrice, MarketPrice, Timestamp, InstrumentType, Instrument, Delta, PL, Original_Id, Original_Quantity, Original_TradePrice, Original_MarketPrice, Original_Timestamp, Original_Delta, Original_PL, Original_Id);
         }
     }
     
@@ -1197,7 +1413,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(TradeToolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DbTradeDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tradesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Trades.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1216,7 +1432,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(TradeToolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DbTradeDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tradesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Trades.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1234,7 +1450,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(TradeToolDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DbTradeDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tradesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Trades.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1276,7 +1492,7 @@ SELECT Id, Quantity, InstrumentType, Price, Timestamp, Option_Id, Stock_Id FROM 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(TradeToolDataSet dataSet) {
+        public virtual int UpdateAll(DbTradeDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -18,7 +18,5 @@ namespace MonteCarlo2
         public double ClosePrice { get; set; }
         public int StockID { get; set; }
         public System.DateTime Date { get; set; }
-    
-        public virtual Stocks Stock { get; set; }
     }
 }
