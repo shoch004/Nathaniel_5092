@@ -88,6 +88,7 @@ namespace MonteCarlo2
             this.data_Options.Location = new System.Drawing.Point(12, 52);
             this.data_Options.Name = "data_Options";
             this.data_Options.ReadOnly = true;
+            this.data_Options.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_Options.Size = new System.Drawing.Size(748, 93);
             this.data_Options.TabIndex = 4;
             // 

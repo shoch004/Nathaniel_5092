@@ -57,12 +57,6 @@ namespace MonteCarlo2
             this.rhoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.do_stuff = new System.Windows.Forms.Button();
             this.dataInstruments = new System.Windows.Forms.DataGridView();
-            this.tradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbTradeDataSet2 = new MonteCarlo2.DbTradeDataSet2();
-            this.tradesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tradesTableAdapter = new MonteCarlo2.DbTradeDataSet2TableAdapters.TradesTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,22 +66,28 @@ namespace MonteCarlo2
             this.marketPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tradesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbTradeDataSet2 = new MonteCarlo2.DbTradeDataSet2();
+            this.tradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tradesTableAdapter = new MonteCarlo2.DbTradeDataSet2TableAdapters.TradesTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.check_antithetic = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Steps = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.check_multithread = new System.Windows.Forms.CheckBox();
             this.check_controlVariate = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Paths = new System.Windows.Forms.TextBox();
             this.group_settings = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTotals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataInstruments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).BeginInit();
             this.group_settings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,21 +120,21 @@ namespace MonteCarlo2
             this.stockToolStripMenuItem1,
             this.optionToolStripMenuItem1});
             this.tradeToolStripMenuItem.Name = "tradeToolStripMenuItem";
-            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tradeToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.tradeToolStripMenuItem.Text = "Trade";
             this.tradeToolStripMenuItem.Click += new System.EventHandler(this.tradeToolStripMenuItem_Click);
             // 
             // stockToolStripMenuItem1
             // 
             this.stockToolStripMenuItem1.Name = "stockToolStripMenuItem1";
-            this.stockToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.stockToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.stockToolStripMenuItem1.Text = "Stock";
             this.stockToolStripMenuItem1.Click += new System.EventHandler(this.stockToolStripMenuItem1_Click);
             // 
             // optionToolStripMenuItem1
             // 
             this.optionToolStripMenuItem1.Name = "optionToolStripMenuItem1";
-            this.optionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.optionToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.optionToolStripMenuItem1.Text = "Option";
             this.optionToolStripMenuItem1.Click += new System.EventHandler(this.optionToolStripMenuItem1_Click);
             // 
@@ -146,7 +146,7 @@ namespace MonteCarlo2
             this.historicalStockPriceToolStripMenuItem,
             this.rateToolStripMenuItem});
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.addToolStripMenuItem.Text = "Add";
             // 
             // optionToolStripMenuItem
@@ -180,7 +180,7 @@ namespace MonteCarlo2
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // viewToolStripMenuItem
@@ -323,38 +323,6 @@ namespace MonteCarlo2
             this.dataInstruments.TabIndex = 5;
             this.dataInstruments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataInstruments_CellClick);
             // 
-            // dbTradeDataSet2
-            // 
-            this.dbTradeDataSet2.DataSetName = "DbTradeDataSet2";
-            this.dbTradeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tradesBindingSource1
-            // 
-            this.tradesBindingSource1.DataMember = "Trades";
-            this.tradesBindingSource1.DataSource = this.dbTradeDataSet2;
-            // 
-            // tradesTableAdapter
-            // 
-            this.tradesTableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 199);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Book (Hold CTRL and Click Rows to Select/Unselect)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "P/L and Greeks (Aggregate of Selected Book Positions) ";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -418,6 +386,38 @@ namespace MonteCarlo2
             this.deltaDataGridViewTextBoxColumn.Name = "deltaDataGridViewTextBoxColumn";
             this.deltaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // tradesBindingSource1
+            // 
+            this.tradesBindingSource1.DataMember = "Trades";
+            this.tradesBindingSource1.DataSource = this.dbTradeDataSet2;
+            // 
+            // dbTradeDataSet2
+            // 
+            this.dbTradeDataSet2.DataSetName = "DbTradeDataSet2";
+            this.dbTradeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tradesTableAdapter
+            // 
+            this.tradesTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 199);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Book (Hold CTRL and Click Rows to Select/Unselect)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(274, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "P/L and Greeks (Aggregate of Selected Book Positions) ";
+            // 
             // check_antithetic
             // 
             this.check_antithetic.AutoSize = true;
@@ -428,12 +428,12 @@ namespace MonteCarlo2
             this.check_antithetic.Text = "Antithetic";
             this.check_antithetic.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txt_Steps
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 9;
+            this.txt_Steps.Location = new System.Drawing.Point(173, 23);
+            this.txt_Steps.Name = "txt_Steps";
+            this.txt_Steps.Size = new System.Drawing.Size(100, 20);
+            this.txt_Steps.TabIndex = 9;
             // 
             // label3
             // 
@@ -471,22 +471,22 @@ namespace MonteCarlo2
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(161, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Number of Steps for Monte Carlo";
+            this.label4.Text = "Number of Paths for Monte Carlo";
             // 
-            // textBox2
+            // txt_Paths
             // 
-            this.textBox2.Location = new System.Drawing.Point(173, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 14;
+            this.txt_Paths.Location = new System.Drawing.Point(173, 51);
+            this.txt_Paths.Name = "txt_Paths";
+            this.txt_Paths.Size = new System.Drawing.Size(100, 20);
+            this.txt_Paths.TabIndex = 14;
             // 
             // group_settings
             // 
             this.group_settings.Controls.Add(this.label3);
-            this.group_settings.Controls.Add(this.textBox2);
+            this.group_settings.Controls.Add(this.txt_Paths);
             this.group_settings.Controls.Add(this.check_antithetic);
             this.group_settings.Controls.Add(this.label4);
-            this.group_settings.Controls.Add(this.textBox1);
+            this.group_settings.Controls.Add(this.txt_Steps);
             this.group_settings.Controls.Add(this.check_controlVariate);
             this.group_settings.Controls.Add(this.check_multithread);
             this.group_settings.Location = new System.Drawing.Point(12, 376);
@@ -539,9 +539,9 @@ namespace MonteCarlo2
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTotals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataInstruments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbTradeDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tradesBindingSource)).EndInit();
             this.group_settings.ResumeLayout(false);
             this.group_settings.PerformLayout();
             this.ResumeLayout(false);
@@ -601,12 +601,12 @@ namespace MonteCarlo2
         private System.Windows.Forms.DataGridViewTextBoxColumn pLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deltaDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox check_antithetic;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Steps;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox check_multithread;
         private System.Windows.Forms.CheckBox check_controlVariate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Paths;
         private System.Windows.Forms.GroupBox group_settings;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.Label label5;
