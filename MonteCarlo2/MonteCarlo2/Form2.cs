@@ -210,7 +210,7 @@ namespace MonteCarlo2
 
                 if (price <=0)
                 {
-                    MessageBox.Show("Invalid Underlying Price");
+                    MessageBox.Show("At least one underlying stock does not have a historical price");
                     return;
                 }
 
@@ -517,38 +517,79 @@ namespace MonteCarlo2
 
                 Int32 option_id = (Int32)option[0];
 
-                //insert market price in trade table
+                //insert market price, delta and P/l in trade table
 
                 var update_option = model1Container.Trades.SingleOrDefault(o => o.Id == option_id);
                 if (update_option != null)
                 {
                     update_option.MarketPrice = option_price[0];
+                    update_option.PL = update_option.Quantity * (option_price[0] - update_option.TradePrice);
+                    update_option.Delta = greeks["delta"] * update_option.Quantity;
 
                     model1Container.SaveChanges();
                 }
-                
-                                     
 
-
-
-
-
-
+                total_delta += greeks["delta"] * update_option.Quantity;
+                total_gamma += greeks["gamma"] * update_option.Quantity;
+                total_vega += greeks["vega"] * update_option.Quantity;
+                total_theta += greeks["theta"] * update_option.Quantity;
+                total_rho += greeks["rho"] * update_option.Quantity;
+                total_profit += update_option.Quantity * (option_price[0] - update_option.TradePrice);
 
             }
 
+        
+            foreach (var stock in stock_list)
+            {
+                Int32 stock_id = (Int32)stock[0];
+
+                var update_stock = model1Container.Trades.SingleOrDefault(s => s.Id == stock_id);
+                if (update_stock != null)
+                {
+                    update_stock.Delta = update_stock.Quantity;
+
+                    //get last historical date
+                    //first get ticker
+                    string stock_ticker = update_stock.Instrument;
+
+                    //then get stock id from stock table
+                    var queried_stock = model1Container.Stocks.SingleOrDefault(s => s.Ticker == stock_ticker);
+                    //make id_stock an int32
+                    //then get most recent price
+                    var spot_query = from p in model1Container.StockPrices
+                                     orderby p.Date
+                                     where p.StockID == queried_stock.Id
+                                     select p.ClosePrice;
+
+
+                    double price = -1;
+                    foreach (double prices in spot_query)
+                    {
+                        price = prices;
+                    }
+                    
+                    if (price <= 0)
+                    {
+                        MessageBox.Show("At least one selected stock does not have a historical price");
+                        return;
+                    }
+
+                    update_stock.MarketPrice = price;
+                    update_stock.PL = update_stock.Quantity * (price - update_stock.TradePrice);
+
+                    model1Container.SaveChanges();
+
+                    total_delta += update_stock.Quantity;
+                    total_profit += update_stock.Quantity * (price - update_stock.TradePrice);
+                }
+            }
+
+            this.tradesTableAdapter.Fill(this.dbTradeDataSet2.Trades);
+            dataTotals.Rows.Clear();
+            dataTotals.Rows.Add(total_profit, total_delta, total_gamma, total_vega, total_theta, total_rho);
+
 
             
-            
-
-
-
-
-            //var drv = dataInstruments.SelectedRows[0].DataBoundItem as DataRowView;
-            //var row = drv.Row as DataRow;
-
-            //val is an object array of all the attributes of the Options object.
-            //var val = row.ItemArray;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -614,7 +655,7 @@ namespace MonteCarlo2
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            //this.tradesTableAdapter.Fill(this.tradesBindingSource1);
+            this.tradesTableAdapter.Fill(this.dbTradeDataSet2.Trades);
         }
     }
 }
